@@ -13,6 +13,8 @@ void copy(int fdin, int fdout)
   char buffer[BUFFER_LEN];
   ssize_t size;
   while ((size = read(fdin, buffer, BUFFER_LEN)) > 0) {
+    printf("current: %ld\n",
+	   lseek(fdin, 0L, SEEK_CUR));
     if (write(fdout, buffer, size) != size) {
       fprintf(stderr, "write error: %s\n",
 	      strerror(errno));
