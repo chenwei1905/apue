@@ -18,6 +18,9 @@ int main(int argc, char *argv[])
   // open a only-read file
 
   fdin = open(argv[1], O_RDONLY);
+  // use lseek print file length 
+  printf("file length: %ld\n", lseek(fdin, 0L, SEEK_END));
+  
   if (fdin < 0) {
     fprintf(stderr, "open error: %s\n",
 	    strerror(errno));
