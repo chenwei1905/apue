@@ -15,12 +15,17 @@ int main(int argc, char *argv[])
   }
 
   int fdin, fdout;
-  // open a only-read file
+  // 打开文件
 
   fdin = open(argv[1], O_RDONLY);
+<<<<<<< HEAD
   // use lseek print file length 
   //  printf("file length: %ld\n", lseek(fdin, 0L, SEEK_END));
   
+=======
+  //使用lseek确定文件的大小
+  printf("file length: %ld\n", lseek(fdin, 0L, SEEK_END));
+>>>>>>> 10b186df46341588f30ce8509dfc53d247921188
   if (fdin < 0) {
     fprintf(stderr, "open error: %s\n",
 	    strerror(errno));
@@ -28,7 +33,7 @@ int main(int argc, char *argv[])
   } else {
     printf("open file: %d\n", fdin);
   }
-  //write a file
+  //写入文件
   fdout =open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0777);
 
   if (fdout < 0) {
